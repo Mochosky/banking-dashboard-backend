@@ -39,7 +39,7 @@ builder.Services.AddCors(options =>
 
     options.AddPolicy("AllowVercel", policy =>
     {
-        policy.WithOrigins("https://banking-dashboard-frontend-three.vercel.app/")
+        policy.WithOrigins("https://banking-dashboard-frontend-three.vercel.app")
                         .AllowAnyMethod()
                         .AllowAnyHeader();
     });
@@ -63,6 +63,7 @@ if (app.Environment.IsDevelopment())
 
 // Use the CORS policy defined above
 app.UseCors("AllowAngular");
+app.UseCors("AllowVercel");
 
 app.UseHttpsRedirection();
 
